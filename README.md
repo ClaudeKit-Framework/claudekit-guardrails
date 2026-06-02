@@ -64,8 +64,8 @@ and ADRs all carry forward.
 
 ```bash
 # ── guardrails-solo ───────────────────────────────────────────────────────
-git clone git@github.com:FreyjaJD/Claude-Code-Guardrails.git
-cp -ra Claude-Code-Guardrails/guardrails-solo/. my-project/
+git clone git@github.com:ClaudeKit-Framework/claudekit-guardrails.git
+cp -ra claudekit-guardrails/guardrails-solo/. my-project/
 cd my-project
 git init && git remote add origin https://github.com/your-org/my-project.git
 # 1. Fill in CLAUDE.md Section 0 (your stack, test command, key dirs)
@@ -73,8 +73,8 @@ git init && git remote add origin https://github.com/your-org/my-project.git
 # 3. Open Claude Code — active layers take effect immediately
 
 # ── guardrails-team ───────────────────────────────────────────────────────
-git clone git@github.com:FreyjaJD/Claude-Code-Guardrails.git
-cp -ra Claude-Code-Guardrails/guardrails-team/. my-project/
+git clone git@github.com:ClaudeKit-Framework/claudekit-guardrails.git
+cp -ra claudekit-guardrails/guardrails-team/. my-project/
 cd my-project
 git init && git remote add origin https://github.com/your-org/my-project.git
 make setup              # Makes hooks executable; runs verification checklist

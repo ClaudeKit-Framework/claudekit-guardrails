@@ -38,11 +38,11 @@ and broader regulatory coverage.
 
 ```bash
 # Clone the baseline repo (contains both templates)
-git clone git@github.com:FreyjaJD/Claude-Code-Guardrails.git
+git clone git@github.com:ClaudeKit-Framework/claudekit-guardrails.git
 cd your-existing-project-or-new-folder
 
 # Copy just the solo template files (including hidden files)
-cp -ra ../Claude-Code-Guardrails/guardrails/. .
+cp -ra ../claudekit-guardrails/guardrails-solo/. .
 
 # Point git to your own repo
 git remote set-url origin https://github.com/your-org/my-project.git
@@ -50,8 +50,8 @@ git remote set-url origin https://github.com/your-org/my-project.git
 
 If starting from scratch with no existing project folder:
 ```bash
-git clone git@github.com:FreyjaJD/Claude-Code-Guardrails.git
-cp -ra Claude-Code-Guardrails/guardrails/. my-project/
+git clone git@github.com:ClaudeKit-Framework/claudekit-guardrails.git
+cp -ra claudekit-guardrails/guardrails-solo/. my-project/
 cd my-project
 git init && git remote add origin https://github.com/your-org/my-project.git
 ```

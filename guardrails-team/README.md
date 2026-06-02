@@ -135,8 +135,9 @@ new project.
 #### Step 3 — Clone and rename
 
 ```bash
-# Clone this baseline as your new project
-git clone git@github.com:FreyjaJD/Claude-Code-Guardrails.git my-new-project
+# Clone the guardrails repo and copy the team template into your new project
+git clone git@github.com:ClaudeKit-Framework/claudekit-guardrails.git
+cp -ra claudekit-guardrails/guardrails-team/. my-new-project/
 cd my-new-project
 
 # Point origin to your new project repo
@@ -281,7 +282,7 @@ Handle each category separately as described below.
 These are new files unlikely to exist in any project yet:
 
 ```bash
-BASELINE=../Claude-Code-Guardrails
+BASELINE=../claudekit-guardrails/guardrails-team
 
 cp $BASELINE/.claudeignore .
 cp $BASELINE/managed-settings.json .
