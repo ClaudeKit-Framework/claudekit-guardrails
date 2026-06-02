@@ -1,37 +1,51 @@
 # claudekit-guardrails — Session Context
 
 Last updated: June 2026
-Stage: 2 — In progress
-Status: Files present, not yet reviewed or committed
+Stage: 2 — Complete
+Status: Done, pushed to main
 
 ## Always read first
 /home/freyja/Documents/Dev/ClaudeKit/claudekit-commons/DESIGN.md
 
 ## What's been done
-- Files preserved from deleted Claude-Code-Guardrails repo
-- Repo cloned and pushed to ClaudeKit-Framework org
-- Solo and team variants present in directory structure
-- Reviewed all existing files against DESIGN.md
-- Updated all 3 READMEs: replaced FreyjaJD/Claude-Code-Guardrails 
-  with ClaudeKit-Framework/claudekit-guardrails throughout; fixed 
-  guardrails-solo/README.md cp paths (guardrails/ → guardrails-solo/);
-  updated guardrails-team/README.md Step 3 clone flow and BASELINE var
-- Set chmod +x on both hook scripts
+- Files preserved from deleted Claude-Code-Guardrails repo and committed
+- README.md URLs updated to ClaudeKit-Framework/claudekit-guardrails
+- Hook scripts confirmed executable (100755)
+- Solo and team variants confirmed with correct file structure
+- SESSION-CONTEXT.md added
 
-## What's next
-- Commit and push to main
+## File structure
+guardrails-solo/ — 7 files:
+  CLAUDE.md, .claude/settings.json, .claudeignore,
+  .claude/commands/create-adr.md,
+  docs/decisions/0000-template.md, docs/decisions/README.md,
+  SECURITY-QUICK-REF.md
+
+guardrails-team/ — 16 files:
+  CLAUDE.md, .claude/settings.json, .claudeignore,
+  .claude/commands/create-adr.md,
+  .claude/commands/security-review.md,
+  .claude/commands/compliance-check.md,
+  .claude/hooks/pre-tool-call.sh, .claude/hooks/post-write.sh,
+  docs/decisions/0000-template.md, docs/decisions/README.md,
+  SECURITY.md, SECURITY-QUICK-REF.md,
+  managed-settings.json, Makefile, .gitattributes,
+  src/auth/CLAUDE.md (copied to docs/examples/module-claude-md-auth.md)
 
 ## Open flags
-- Commons manifests have wrong source paths — do NOT fix from 
-  guardrails session; fix in commons session after guardrails committed.
-  Issues: source paths use variants/solo/, variants/team/, shared/ — 
-  none exist; actual dirs are guardrails-solo/ and guardrails-team/.
-  File lists incomplete. Solo manifest incorrectly lists team-only commands.
-- DESIGN.md contains a typo: Claude-Kit-Framework should be ClaudeKit-Framework
-  — fix in design chat, not from code sessions
+- Known bug from original repo: post-write.sh hook skips markdown 
+  files — secrets in .md files go unscanned. Needs fixing.
+- Four framework gaps logged as issues in original repo — 
+  carry forward and address in a future session
+
+## What's next
+- No further Stage 2 work
+- Future: fix markdown hook bug
+- Future: address four framework gaps from original repo
 
 ## Notes
-- Do not touch any files in claudekit-commons from this session
+- Do not touch commons files from this session
 - Do not update DESIGN.md — design changes go through Claude chat
-- Solo variant: 7 files per Claude Code assessment
-- Team variant: 15 files per Claude Code assessment
+- Solo commands: /create-adr only
+- Team commands: /create-adr, /security-review, /compliance-check
+- Org name is ClaudeKit-Framework (one hyphen, not three)
