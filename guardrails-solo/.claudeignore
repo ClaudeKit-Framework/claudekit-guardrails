@@ -1,0 +1,50 @@
+# .claudeignore — files Claude Code cannot read
+
+# Credentials & secrets
+.env
+.env.*
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+authorized_keys
+credentials.json
+secrets.json
+token.json
+auth.json
+*secret*
+*password*
+*.apikey
+
+# Cloud credentials
+.aws/
+.azure/
+.gcp/
+application_default_credentials.json
+service-account*.json
+
+# Package manager auth
+.npmrc
+.pypirc
+.netrc
+
+# Version control internals
+.git/config
+.git/credentials
+
+# Claude Code internals
+.claude/shell-snapshots/
+
+# managed-settings.json (org policy — not for AI to read)
+managed-settings.json
+
+# ── Add project-specific exclusions below ─────────────────────────────────

@@ -1,0 +1,32 @@
+# .gitattributes
+# Ensures consistent line endings across operating systems.
+# Shell scripts must use LF (not CRLF) or bash will fail on Linux/macOS.
+# Note: execute permissions cannot be preserved via .gitattributes.
+# Run `make hooks` or `chmod +x .claude/hooks/*.sh` after every fresh clone.
+
+# ── Hook scripts — must be executable ─────────────────────────────────────
+# LF line endings prevent Windows CRLF breaking bash execution.
+# Note: execute permissions cannot be preserved in Git attributes.
+# Run `make hooks` (or chmod +x .claude/hooks/*.sh) after every clone.
+.claude/hooks/*.sh    text eol=lf
+
+# Force LF line endings on shell scripts (prevents Windows CRLF breaking bash)
+*.sh                  text eol=lf
+
+# ── Markdown — consistent line endings ────────────────────────────────────
+*.md                  text eol=lf
+
+# ── JSON — consistent line endings ────────────────────────────────────────
+*.json                text eol=lf
+
+# ── Makefile — must use tabs, not spaces ──────────────────────────────────
+Makefile              text eol=lf
+
+# ── Binary files — no line ending conversion ──────────────────────────────
+*.png                 binary
+*.jpg                 binary
+*.gif                 binary
+*.ico                 binary
+*.pdf                 binary
+*.zip                 binary
+*.tar.gz              binary

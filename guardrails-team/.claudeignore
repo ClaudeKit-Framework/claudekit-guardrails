@@ -1,0 +1,89 @@
+# .claudeignore
+# Files Claude Code is technically blocked from reading.
+# Syntax identical to .gitignore.
+# Add project-specific sensitive files below the defaults.
+
+# ── Credentials & secrets ──────────────────────────────────────────────────
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Certificates and keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.jks
+*.keystore
+
+# SSH
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+id_dsa
+id_ecdsa
+known_hosts
+authorized_keys
+
+# Cloud credentials
+.aws/
+.azure/
+.gcp/
+gcloud/
+application_default_credentials.json
+service-account*.json
+
+# Generic secret file patterns
+credentials.json
+credentials.yml
+credentials.yaml
+secrets.json
+secrets.yml
+secrets.yaml
+token.json
+auth.json
+*secret*
+*password*
+*passwd*
+*.apikey
+
+# ── Config files that may contain credentials ──────────────────────────────
+settings.local.json
+settings.local.yml
+*.local.json
+*.local.yaml
+config.local.*
+database.yml          # Rails — often contains production credentials
+wp-config.php         # WordPress
+*.conf                # May contain credentials — review and remove if safe
+
+# ── Package manager auth ───────────────────────────────────────────────────
+.npmrc                # May contain auth tokens
+.pypirc               # PyPI credentials
+.netrc                # Generic credential store
+.htpasswd
+
+# ── Claude Code internals ─────────────────────────────────────────────────
+.claude/shell-snapshots/
+.claude/todos/
+
+# ── Version control internals ─────────────────────────────────────────────
+.git/config
+.git/credentials
+.git/FETCH_HEAD
+
+# ── OS and editor ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── managed-settings.json (contains org policy — not for AI to read) ──────
+managed-settings.json
+
+# ── Add project-specific exclusions below this line ───────────────────────
+# Example: internal-docs/   ← proprietary documentation
+# Example: certs/           ← certificate store

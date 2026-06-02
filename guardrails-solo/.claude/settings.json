@@ -1,0 +1,63 @@
+{
+  "_readme": "Project-level Claude Code permissions. Add your stack's test/lint/build commands to the allow list. The deny list blocks the most dangerous operations.",
+
+  "permissions": {
+    "defaultMode": "ask",
+
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git stash *)",
+      "Bash(git branch *)",
+      "Bash(ls *)",
+      "Bash(echo *)",
+      "Bash(pwd)",
+
+      "Bash(npm run lint)",
+      "Bash(npm run format)",
+      "Bash(npm run typecheck)",
+      "Bash(npm test)",
+      "Bash(npm run build)",
+      "Bash(npx tsc --noEmit)",
+
+      "Bash(pnpm lint)",
+      "Bash(pnpm test)",
+      "Bash(pnpm build)",
+
+      "Bash(pytest -q)",
+      "Bash(pytest *)",
+      "Bash(ruff check .)",
+      "Bash(black --check .)",
+      "Bash(mypy *)",
+
+      "Bash(go test ./...)",
+      "Bash(golangci-lint run)"
+    ],
+
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(curl * | bash)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | bash)",
+      "Bash(wget * | sh)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(eval *)",
+      "Read(**/.env*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa*)",
+      "Read(**/credentials.json)",
+      "Read(**/secrets.json)",
+      "Read(**/.aws/*)",
+      "Read(**/.ssh/*)"
+    ]
+  },
+
+  "_note_transcriptRetention": "transcriptRetentionDays is enforced at the managed-settings.json level. Set it there for reliable enforcement. Value here may be ignored by Claude Code.",
+  "transcriptRetentionDays": 14
+}

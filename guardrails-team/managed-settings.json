@@ -1,0 +1,91 @@
+{
+  "_readme": [
+    "managed-settings.json — Org-Level Claude Code Enforcement Template",
+    "",
+    "IMPORTANT: This file is a TEMPLATE. It must be deployed separately",
+    "from the project repo to each developer machine. It is NOT enforced",
+    "simply by being in the repo. See deployment instructions below.",
+    "",
+    "Deployment options (choose one):",
+    "  1. MDM (recommended for teams):",
+    "       macOS: deploy to ~/Library/Application Support/Claude/managed-settings.json",
+    "              via Jamf, Kandji, or any MDM as a managed preference",
+    "       Windows: deploy to %APPDATA%\\Claude\\managed-settings.json via Intune/GPO",
+    "  2. Server-managed settings:",
+    "       Claude Team v2.1.38+ / Enterprise v2.1.30+",
+    "       Configure at: claude.ai > Admin > Developer Settings > Managed Settings",
+    "  3. Manual (solo developer):",
+    "       Copy to the path above on your machine",
+    "",
+    "Settings here CANNOT be overridden by project or user settings.",
+    "Remove the _readme AND _notes fields before deploying.",
+    "The Makefile deploy-settings target does this automatically.",
+    "If deploying manually, delete both fields from the JSON."
+  ],
+
+  "permissions": {
+    "defaultMode": "ask",
+
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(git stash *)",
+      "Bash(ls *)",
+      "Bash(echo *)",
+      "Bash(pwd)",
+      "Bash(which *)",
+      "Bash(node --version)",
+      "Bash(python --version)",
+      "Bash(python3 --version)"
+    ],
+
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(chmod 777 *)",
+      "Bash(chmod o+w *)",
+      "Bash(chown * /etc/*)",
+      "Bash(curl * | bash)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | bash)",
+      "Bash(wget * | sh)",
+      "Bash(bash <(*))",
+      "Bash(sh <(*))",
+      "Bash(eval *)",
+      "Bash(base64 -d * | bash)",
+      "Bash(python -c *import os*)",
+      "Bash(node -e *require*child_process*)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -fd*)",
+      "Bash(dd if=*)",
+      "Bash(mkfs*)",
+      "Bash(fdisk*)",
+      "Read(**/.env*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa*)",
+      "Read(**/id_ed25519*)",
+      "Read(**/credentials.json)",
+      "Read(**/secrets.json)",
+      "Read(**/.aws/*)",
+      "Read(**/.ssh/*)",
+      "Read(**/managed-settings.json)"
+    ]
+  },
+
+  "disableBypassPermissionsMode": true,
+
+  "transcriptRetentionDays": 14,
+
+  "_notes": {
+    "strictKnownMarketplaces": "Verify this setting name against current Claude Code documentation before use — setting names may change between releases",
+    "mcpServers": "To restrict MCP servers org-wide, add approved server configs here using the same format as .claude/settings.json mcpServers. Remove this _notes block before deploying."
+  }
+}

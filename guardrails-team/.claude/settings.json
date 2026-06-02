@@ -1,0 +1,67 @@
+{
+  "_readme": "Project-level Claude Code settings. More permissive than managed-settings.json — add your stack's specific commands to the allow list. This file IS enforced from the repo. It cannot override managed-settings.json.",
+
+  "permissions": {
+    "defaultMode": "ask",
+
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git stash *)",
+      "Bash(git branch *)",
+      "Bash(ls *)",
+      "Bash(echo *)",
+      "Bash(pwd)",
+
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(python --version)",
+      "Bash(python3 --version)",
+
+      "Bash(npm run lint)",
+      "Bash(npm run format)",
+      "Bash(npm run typecheck)",
+      "Bash(npm test)",
+      "Bash(npm run test:unit)",
+      "Bash(npm run test:coverage)",
+      "Bash(npx tsc --noEmit)",
+
+      "Bash(pnpm lint)",
+      "Bash(pnpm test)",
+      "Bash(pnpm build)",
+
+      "Bash(pytest -q)",
+      "Bash(pytest *)",
+      "Bash(ruff check .)",
+      "Bash(black --check .)",
+      "Bash(mypy *)",
+
+      "Bash(go test ./...)",
+      "Bash(golangci-lint run)"
+    ],
+
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(chmod 777 *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -fd*)",
+      "Read(**/.env*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa*)",
+      "Read(**/credentials.json)",
+      "Read(**/secrets.json)",
+      "Read(**/.aws/*)",
+      "Read(**/.ssh/*)"
+    ]
+  },
+
+  "_note_transcriptRetention": "transcriptRetentionDays is enforced at the managed-settings.json level. Set it there for reliable enforcement. Value here may be ignored by Claude Code.",
+  "transcriptRetentionDays": 14
+}
