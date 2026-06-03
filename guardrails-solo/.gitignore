@@ -1,0 +1,5 @@
+# project-state.json — local session state, not shared for solo users
+project-state.json
+
+# session-contract.json — transient per-session file, never committed
+.claude/session-contract.json

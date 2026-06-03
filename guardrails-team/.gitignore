@@ -1,0 +1,6 @@
+# project-state.json is intentionally NOT gitignored for team projects.
+# It must be committed after every session so that simultaneous sessions
+# surface as merge conflicts rather than silent overwrites.
+
+# session-contract.json — transient per-session file, never committed
+.claude/session-contract.json
